@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employee Registration System</h1>
+            <p class="subtitle">Manage your team members</p>
+        </header>
+        
+        <div class="content-wrapper">
+            <div class="form-section">
+                <h2>Employee Form <span class="status-indicator" id="formStatus">Add New</span></h2>
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter employee name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="jobTitle">Job Title</label>
+                    <select id="jobTitle" class="form-control">
+                        <option value="">Select a job title</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="Mobile App Developer">Mobile App Developer</option>
+                        <option value="AI Developer">AI Developer</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" class="form-control" placeholder="Enter employee description"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" id="addBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Employee
+                    </button>
+                    <button type="button" id="updateBtn" class="btn btn-primary" style="display: none;">
+                        <i class="fas fa-sync"></i> Update
+                    </button>
+                    <button type="button" id="cancelBtn" class="btn btn-outline" style="display: none;">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-section">
+                <div class="table-header">
+                    <h2>Employee Directory</h2>
+                    
+                    <div class="search-filter">
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Search by name...">
+                            <div class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="filterBtn">
+                                <i class="fas fa-filter"></i>
+                                <span id="filterText">Filter by Job</span>
+                            </button>
+                            <div class="dropdown-content" id="filterDropdown">
+                                <a href="#" data-job="">All Jobs</a>
+                                <a href="#" data-job="Software Engineer">Software Engineer</a>
+                                <a href="#" data-job="Web Developer">Web Developer</a>
+                                <a href="#" data-job="Mobile App Developer">Mobile App Developer</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="employee-count">
+                        <i class="fas fa-users"></i>
+                        <span>Total Employees: <strong id="employeeCount">0</strong></span>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="employee-table">
+                        <thead>
+                            <tr>
+                                <th width="50">#</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Job Title</th>
+                                <th width="150">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeTableBody">
+                        
+                        </tbody>
+                    </table>
+                    
+                    <div id="noResults" class="no-results">
+                        <i class="fas fa-user-slash"></i>
+                        <h3>No employees found</h3>
+                        <p>Try different search words</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
